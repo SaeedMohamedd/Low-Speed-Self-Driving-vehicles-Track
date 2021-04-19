@@ -266,17 +266,22 @@ except:
 
 #Q16.
 
+try:
+    read_file = open("mbox-short.txt","r")
+    count = 0
+    for line in read_file:
+        line = line.rstrip()
+        if line == "": 
+            continue
+            
+        words = line.split()
+        if words[0] !="From": 
+            continue
+            
+        print(words[1])
+        count = count+1
 
-read_file = open("mbox-short.txt","r")
-count = 0
-for line in read_file:
-    line = line.rstrip()
-    if line == "": continue
-        
-    words = line.split()
-    if words[0] !="From": continue
-        
-    print(words[1])
-    count = count+1
+    print ("there were", count, "lines in the file with From as the first word")     
 
-print ("There were", count, "lines in the file with From as the first word")     
+except:
+       print("invalid") 
