@@ -265,7 +265,7 @@ except:
 
 
 #Q16.
-
+'''
 try:
     read_file = open("mbox-short.txt","r")
     count = 0
@@ -285,3 +285,5 @@ try:
 
 except:
        print("invalid") 
+       
+'''
