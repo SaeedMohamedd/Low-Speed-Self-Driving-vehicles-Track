@@ -124,7 +124,7 @@ Add(int n1,int n2){
 Add add(a,b);
 ************************************/
 ///////Q7.
-
+/*******************
 int a,b,c,d;
 cout<<" first number : "<<endl;
 cout<<"enter the real part: ";
@@ -152,12 +152,12 @@ int add_numbers_parts(int r1,int r2){
 };
 Number n1(a,b);
 Number n2(c,d);
-
+cout<<endl;
 cout<<"the sum of the real parts is "<<n1.add_numbers_parts(n1.real_part,n2.real_part)<<endl;
 cout<<"the sum of the imainary parts is "<<n1.add_numbers_parts(n1.img_part,n2.img_part)<<endl;
 cout<<endl;
 cout<<"the sum of the real parts is "<<n1.real_part+n2.real_part<<endl;
 cout<<"the sum of the imainary parts is "<<n1.img_part+n2.img_part<<endl;
-
+*////////////////
     return 0;
 }
