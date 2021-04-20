@@ -1,0 +1,123 @@
+
+Q1. 
+
+cat :to create,display and edit text files.
+more: we can  use cat with more option like more or less, If file having large number of content that won’t fit in output terminal and screen scrolls up very fast.
+
+
+
+Q2.
+
+cd /home/user
+pwd
+
+or
+echo $HOME
+
+Q3.
+
+cd /home/user
+mkdir SAMPLE
+
+
+Q4.
+
+mkdir SAMPLE/HELLO
+
+Q5.
+     
+  mkdir /home/user/SAMPLE/HELLO
+
+Q6.
+
+rm -r /home/user/SAMPLE/HELLO
+
+Q7.
+
+ mkdir -p /home/user/SAMPLE/HELLO
+
+Q8.
+
+by add . in the begging of filename
+rename the file name "file.txt" to ".file.txt" by command
+mv file.txt .file.txt
+
+Q9.
+
+NAME
+       rmdir - remove empty directories
+
+       --------------
+NAME
+       rm - remove files or directories
+
+rm remove directories and its content but rmdir remove empty directories
+
+Q10.
+
+cd /home/user
+mkdir -p dir/dir1/file1  docs/WS-ITI dir/dir2
+tree
+
+Q11.
+
+ rm -r ./dir/dir1
+
+Q12.
+
+rmdir -p dir2 
+
+Q13.
+
+absolute path is:
+
+/home/Downloads
+
+steps:
+cd /home/Downloads
+
+    -------------
+
+relative path:
+./Downloads
+
+steps:
+pwd 
+/home/user
+cd ..
+/home
+cd ./Downloads
+
+Q14.
+
+cp /etc/passwd.txt  /home/user/my_passwd.txt
+mv my_passwd.txt old_passwd.txt
+
+Q15.
+
+cd /home/user
+
+cd ~
+
+cd $HOME
+
+cd ~/
+
+Q16.
+
+
+ls /usr/bin/w*.txt
+
+
+Q17.
+
+head -n 2 /etc/passwd
+
+Q18.
+
+ tail -7 /etc/passwd
+
+Q19.
+
+touch /home/user/my_code.txt 
+grep "saeediti" /home/user/*.txt
