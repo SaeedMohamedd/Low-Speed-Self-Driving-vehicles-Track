@@ -1,3 +1,6 @@
+import os
+
+os.system("udevadm info -e > search_usb.txt")
 def get_port_number(device_name,read_file_name,out_file_name):
     wow=[]
     read_file = open(read_file_name,"r")
