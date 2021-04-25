@@ -10,19 +10,20 @@ class my_node(Node):
         super().__init__("Str_publisher")
         self.get_logger().info("node is running")
         self.create_timer(1/1,self.timer_call)
-        self.obj_pub=self.create_publisher(String,"number",10)
+        self.obj_pub=self.create_publisher(String,"str_tobic",10)
         self.create_subscription(String,"reset_flag",self.rec_flag,10)
         self.i=0
         self.flag=''
     def timer_call(self):
         msg=String()
         msg.data=f"SaeedMohamedElsaidBayome is publish,{self.i} "
+        self.i+=1
         self.get_logger().info(msg.data)
         self.obj_pub.publish(msg)
         if self.flag =='f':
             self.i=0
             self.flag=''
-        self.i+=1
+        
 
     def rec_flag(self,f):
         self.flag=f.data
