@@ -1,0 +1,15 @@
+Task1:
+arguments=['1.8', '0.3', '1.0', '0', '0', '0', 'base_footprint', 'zed2_link']
+Comment: '0.3' should be '-0.03' >> right means negative and 3 cm = 0.03m
+
+arguments=['1.8', '0.5', '0.36', '-1.57', '0', '0', 'base_footprint', 'imu_link'],
+Comment: '0.5' should be '-0.5' >> right means negative
+
+
+Task2:
+Great work . That was almost perfect.
+Comment: Your pitch sequence is : 0.3925, 0.523, -0.523, -0.3925, 0
+There is a sudden change from  0.523, -0.523, A smooth change would be better.
+For example:
+0, 0.3925, 0.523, 0.3925, 0, -0.3925, -0.523, -0.3925, 0, ...
+
