@@ -5,6 +5,7 @@ from rclpy.node import Node
 from turtlesim.msg import Pose
 from std_srvs.srv import Empty
 from geometry_msgs.msg import Twist
+import time
 
 class my_node (Node):
     def __init__(self):
@@ -15,6 +16,15 @@ class my_node (Node):
         self.get_logger().info("Node is started")
         self.file1 = open('turtle_commands.csv', 'r')
         self.Lines = self.file1.readlines()
+        self.linear_list=[]
+        self.velocity_list=[]
+        self.index=1
+
+        for line in self.Lines:
+            liner_velocity,angular_velocity=line.split(",")
+            self.linear_list.append(liner_velocity)
+            self.velocity_list.append(angular_velocity)
+
         self.x=0.0
         self.y=0.0
 
@@ -25,20 +35,21 @@ class my_node (Node):
 
     def timer_call(self):
         msg=Twist()
-        for line in self.Lines:
-            liner_velocity,angular_velocity=line.split(",")
-            msg.linear.x=float(liner_velocity)
-            msg.angular.z=float(angular_velocity)
-            self.obj_pub.publish(msg)
-            self.get_logger().info(f"{liner_velocity} {angular_velocity}  {self.x} {self.y}")
-
-            if self.x<2  or self.x > 8 : 
-                if self.y<2 or self.y>8:
-                    self.get_logger().info("out of limit")
-                    client=self.create_client(Empty,"reset")
-                    while client.wait_for_service(0.5)==False:
-                        self.get_logger().warn("waiting server to statrt")
-                    request=Empty.Request()
+        msg.linear.x=float(self.linear_list[self.index])
+        msg.angular.z=float(self.velocity_list[self.index])
+        self.obj_pub.publish(msg)
+        self.get_logger().info(f"{self.linear_list[self.index]} {self.velocity_list[self.index]}  {self.x} {self.y}")
+        if not(2<self.x<8 and 2<self.y<8 ):
+            self.get_logger().info("out of limit")
+            client=self.create_client(Empty,"reset")
+            while client.wait_for_service(0.5)==False:
+                 self.get_logger().warn("waiting server to statrt")
+            request=Empty.Request()
+            client.call_async(request)
+        self.index+=1
+        if self.index >= 13:
+            self.index=1
+            
 
         
 
