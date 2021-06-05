@@ -31,14 +31,28 @@ class my_node (Node):
     def check_call(self):
         count=0
         my_min_list=[]
+        back_min_list=[1]
         for i in self.laser_data:
-            if count < 20 or count > 340 :
+            if count < 15 or count > 345   :
                 my_min_list.append(i)
             count+=1
             if count >359:
                 break
           
-        if min(my_min_list) < 1:
+        if min(my_min_list) < 1 and self.x > 0:
+            self.vel_pub.publish(self.stop_msg)
+        else:
+            self.vel_pub.publish(self.key_vel_cmd)
+               
+        countb=0
+        for i in self.laser_data:
+            if countb >170 and countb<190 :
+                back_min_list.append(i)
+            countb+=1
+            if countb >200:
+                break
+          
+        if min(back_min_list) < 1 and self.x < 0:
             self.vel_pub.publish(self.stop_msg)
         else:
             self.vel_pub.publish(self.key_vel_cmd)
