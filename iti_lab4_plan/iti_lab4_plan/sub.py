@@ -49,16 +49,16 @@ class my_node (Node):
             self.curv_value=self.menger_curvature(x1,y1,x2,y2,x3,y3)
                     
             if self.curv_value >1 :
-                if yaw1> 0:
-                    if yaw2>yaw1:
-                        self.get_logger().info(f"The robot is turning to the right with a curvature {self.curv_value}")
-                    elif yaw2 <yaw1 :
-                        self.get_logger().info(f"The robot is turning to the left with a curvature {self.curv_value}")
-                elif yaw1 <0:
-                        if yaw2>yaw1:
-                            self.get_logger().info(f"The robot is turning to the left with a curvature {self.curv_value}")
-                        elif yaw2 <yaw1 :
-                            self.get_logger().info(f"The robot is turning to the right with a curvature {self.curv_value}")
+              #  if yaw1> 0:
+                if yaw2<yaw1:
+                    self.get_logger().info(f"The robot is turning to the right with a curvature {self.curv_value}")
+                else:
+                    self.get_logger().info(f"The robot is turning to the left with a curvature {self.curv_value}")
+               # elif yaw1 <0:
+                    #    if yaw2>yaw1:
+                    #        self.get_logger().info(f"The robot is turning to the left with a curvature {self.curv_value}")
+                    #    elif yaw2 <yaw1 :
+                    #        self.get_logger().info(f"The robot is turning to the right with a curvature {self.curv_value}")
 
                         
             if self.curv_value <1 and self.curv_value > 0 :
